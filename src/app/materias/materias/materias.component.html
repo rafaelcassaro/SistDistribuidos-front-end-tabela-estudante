@@ -1,0 +1,79 @@
+<mat-card>
+  <mat-card-content>
+
+    <mat-toolbar color="primary">
+      Estudantes disponiveis
+    </mat-toolbar>
+
+<table mat-table [dataSource]="materias" class="mat-elevation-z8">
+
+
+
+  <!-- nome id -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let materia"> {{materia.id}} </td>
+  </ng-container>
+
+  <!-- nome Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> name </th>
+    <td mat-cell *matCellDef="let materia"> {{materia.name}} </td>
+  </ng-container>
+
+  <!-- professor Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> email </th>
+    <td mat-cell *matCellDef="let materia"> {{materia.email}} </td>
+  </ng-container>
+
+  <!-- codigo Column -->
+  <ng-container matColumnDef="codigoAluno">
+    <th mat-header-cell *matHeaderCellDef> codigoAluno </th>
+    <td mat-cell *matCellDef="let materia"> {{materia.codigoAluno}} </td>
+  </ng-container>
+
+   <!-- codigo Column -->
+   <ng-container matColumnDef="password">
+    <th mat-header-cell *matHeaderCellDef> password </th>
+    <td mat-cell *matCellDef="let materia"> {{materia.password}} </td>
+  </ng-container>
+
+   <!-- codigo Column -->
+   <ng-container matColumnDef="materias">
+    <th mat-header-cell *matHeaderCellDef> materias </th>
+    <td mat-cell *matCellDef="let materia"> {{materia.materias}} </td>
+  </ng-container>
+
+  <!-- botoes -->
+  <ng-container matColumnDef="actions">
+
+    <mat-header-cell *matHeaderCellDef>
+
+      <button mat-icon-button color="accent" aria-label="adicionar uma materia" (click) = "onAdd()">
+        <mat-icon >add</mat-icon>
+      </button>
+
+
+
+      <mat-cell *matCellDef="let materia">
+        <button mat-icon-button color="primary" aria-label="Editar uma materia" (click) = "onEdit(materia)">
+          <mat-icon >edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" aria-label="Remover uma materia" (click) = "onDelete(materia)">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </mat-cell>
+
+    </mat-header-cell>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</mat-card-content>
+</mat-card>
